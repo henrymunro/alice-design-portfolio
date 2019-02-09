@@ -1,21 +1,30 @@
 //@flow
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+import { ThemeText, ThemeName } from "src/features/theme";
 
 import styles from "./MenuItem.module.scss";
 
 type Props = {
   text: string;
   link: string;
+  themeName: ThemeName;
+  pathname: string;
 };
 
 export default class MenuItem extends React.PureComponent<Props> {
   render() {
-    const { text, link } = this.props;
+    const { text, link, themeName } = this.props;
     return (
-      <Link className={styles.link} to={link}>
-        {text}
-      </Link>
+      <NavLink
+        exact
+        className={styles.link}
+        activeClassName={styles["link-active"]}
+        to={link}
+      >
+        <ThemeText themeName={themeName}>{text}</ThemeText>
+      </NavLink>
     );
   }
 }
