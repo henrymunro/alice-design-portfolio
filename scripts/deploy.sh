@@ -30,6 +30,7 @@ OTHER_TYPES=( "woff" "woff2" "png" )
 for type in "${GZIP_TYPES[@]}"
 do
     find ./build -name "*.${type}" -print0 | xargs -0 -I file ./scripts/gzip-compress.sh file
+
     aws s3 cp --exclude "*" --include "*.${type}" --exclude "static/*" --recursive ./build "s3://${BUCKET_NAME}" \
       --content-encoding gzip
     aws s3 cp --exclude "*" --include "static/*.${type}" --recursive ./build "s3://${BUCKET_NAME}" \
@@ -56,3 +57,5 @@ aws s3 sync ./build "s3://${BUCKET_NAME}" --delete
 
 echo "Setting index.html Cache-Control -> no-cache"
 aws s3 cp --cache-control "no-cache, no-store, must-revalidate" --content-encoding gzip s3://$BUCKET_NAME/index.html s3://$BUCKET_NAME/index.html --metadata-directive REPLACE
+
+yarn deploy-config $1
