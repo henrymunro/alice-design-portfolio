@@ -1,0 +1,14 @@
+.wrapper {
+  padding: 60px;
+  display: grid;
+  grid-column: "25% 75%";
+  grid-template-areas: "sideBar pageBody";
+}
+
+.sideBar {
+  grid-template: "sideBar";
+}
+
+.pageBody {
+  grid-template: "pageBody";
+}
