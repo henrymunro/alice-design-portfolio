@@ -7,4 +7,6 @@
 // Warning: this file will not be transpiled by Babel and cannot contain
 // any syntax that is not yet supported by your targeted browsers.
 
-window.env = {};
+window.env = {
+  VERSION: "0.2.0"
+};

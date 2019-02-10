@@ -7,9 +7,13 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-BUCKET_NAME=alice-portfolio-webapp-$1
+BUCKET_PATH=alice-portfolio-webapp-$1
 
-echo "Deploying to bucket: $BUCKET_NAME"
+# BUCKET_NAME=henry-lambda-at-edge-test
+# VERSION=$(node -e "console.log(require('./package.json').version)")
+# BUCKET_PATH=$BUCKET_NAME/$VERSION
+
+echo "Deploying to bucket: $BUCKET_PATH"
 
 if [[ -z "$SKIP_BUILD" ]]; then
   echo "Building the app..."
@@ -31,31 +35,31 @@ for type in "${GZIP_TYPES[@]}"
 do
     find ./build -name "*.${type}" -print0 | xargs -0 -I file ./scripts/gzip-compress.sh file
 
-    aws s3 cp --exclude "*" --include "*.${type}" --exclude "static/*" --recursive ./build "s3://${BUCKET_NAME}" \
+    aws s3 cp --exclude "*" --include "*.${type}" --exclude "static/*" --recursive ./build "s3://${BUCKET_PATH}" \
       --content-encoding gzip
-    aws s3 cp --exclude "*" --include "static/*.${type}" --recursive ./build "s3://${BUCKET_NAME}" \
+    aws s3 cp --exclude "*" --include "static/*.${type}" --recursive ./build "s3://${BUCKET_PATH}" \
       --content-encoding gzip --cache-control "public, max-age=86400"
     # files with hash have 30 day cache
     aws s3 cp --exclude "*" --include "static/*.????????.${type}" --include "static/*.????????.chunk.${type}" \
-      --recursive "s3://${BUCKET_NAME}" "s3://${BUCKET_NAME}" --content-encoding gzip \
+      --recursive "s3://${BUCKET_PATH}" "s3://${BUCKET_PATH}" --content-encoding gzip \
       --cache-control "public, max-age=2592000" --metadata-directive REPLACE
 done
 
 for type in "${OTHER_TYPES[@]}"
 do
-    aws s3 cp --exclude "*" --include "*.${type}" --exclude "static/*" --recursive ./build "s3://${BUCKET_NAME}"
-    aws s3 cp --exclude "*" --include "static/*.${type}" --recursive ./build "s3://${BUCKET_NAME}" \
+    aws s3 cp --exclude "*" --include "*.${type}" --exclude "static/*" --recursive ./build "s3://${BUCKET_PATH}"
+    aws s3 cp --exclude "*" --include "static/*.${type}" --recursive ./build "s3://${BUCKET_PATH}" \
       --cache-control "public, max-age=86400"
     # files with hash have 30 day cache
     aws s3 cp --exclude "*" --include "static/*.????????.${type}" --include "static/*.????????.chunk.${type}" \
-      --recursive "s3://${BUCKET_NAME}" "s3://${BUCKET_NAME}" \
+      --recursive "s3://${BUCKET_PATH}" "s3://${BUCKET_PATH}" \
       --cache-control "public, max-age=2592000" --metadata-directive REPLACE
 done
 
-echo "Ensuring bucket is synced"
-aws s3 sync ./build "s3://${BUCKET_NAME}" --delete
+# echo "Ensuring bucket is synced"
+# aws s3 sync ./build "s3://${BUCKET_PATH}" --delete
 
 echo "Setting index.html Cache-Control -> no-cache"
-aws s3 cp --cache-control "no-cache, no-store, must-revalidate" --content-encoding gzip s3://$BUCKET_NAME/index.html s3://$BUCKET_NAME/index.html --metadata-directive REPLACE
+aws s3 cp --cache-control "no-cache, no-store, must-revalidate" --content-encoding gzip s3://$BUCKET_PATH/index.html s3://$BUCKET_PATH/index.html --metadata-directive REPLACE
 
 yarn deploy-config $1

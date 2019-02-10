@@ -16,6 +16,7 @@ class App extends React.PureComponent {
           renderSidebar={() => <SideNavigationMenu />}
           renderPageBody={() => (
             <>
+              <div>{(window as any).env.VERSION}</div>
               <Route exact path={linkToHomePage()} component={HomePage} />
               <Route exact path={linkToAnimation()} component={AnimationPage} />
             </>
