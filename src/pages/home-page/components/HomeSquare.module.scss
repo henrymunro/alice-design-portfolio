@@ -1,5 +1,24 @@
 .wrapper {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   border: 1px solid black;
+  position: relative;
+  cursor: pointer;
+}
+
+.background {
+  transition: 0.2s;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-transform: uppercase;
+
+  &:hover {
+    opacity: 0.9;
+  }
 }

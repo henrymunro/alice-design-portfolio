@@ -5,3 +5,7 @@ export function linkToHomePage() {
 export function linkToAnimation() {
   return `${linkToHomePage()}/animation`;
 }
+
+export function linkToBecomingLost() {
+  return `${linkToHomePage()}/becoming-lost`;
+}

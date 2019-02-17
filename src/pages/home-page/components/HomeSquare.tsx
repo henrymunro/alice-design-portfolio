@@ -1,23 +1,24 @@
 //@flow
 import * as React from "react";
+import classnames from "classnames";
 
-import { ThemeBackgroundFilterOnHover, ThemeName } from "src/features/theme";
+import { ThemeName, ThemeBackground } from "src/features/theme";
 import styles from "./HomeSquare.module.scss";
 
 export type Props = {
   themeName: ThemeName;
+  className: string;
 };
 
 export default class HomeSquare extends React.PureComponent<Props> {
   render() {
-    const { themeName } = this.props;
+    const { themeName, className } = this.props;
     return (
-      <ThemeBackgroundFilterOnHover
-        className={styles.wrapper}
-        themeName={themeName}
-      >
-        {themeName}
-      </ThemeBackgroundFilterOnHover>
+      <div className={classnames(styles.wrapper, className)}>
+        <ThemeBackground className={styles.background} themeName={themeName}>
+          {themeName}
+        </ThemeBackground>
+      </div>
     );
   }
 }

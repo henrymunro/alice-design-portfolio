@@ -2,7 +2,11 @@
 import * as React from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
-import { linkToHomePage, linkToAnimation } from "src/pages/links";
+import {
+  linkToHomePage,
+  linkToAnimation,
+  linkToBecomingLost
+} from "src/pages/links";
 
 import MenuItem from "./MenuItem";
 import styles from "./SideNavigationMenu.module.scss";
@@ -24,6 +28,12 @@ class SideNavigationMenu extends React.PureComponent<RouteComponentProps> {
           themeName="animation"
           text="Animation"
           link={linkToAnimation()}
+        />
+        <MenuItem
+          pathname={pathname}
+          themeName="becomingLost"
+          text="Becoming lost"
+          link={linkToBecomingLost()}
         />
       </div>
     );

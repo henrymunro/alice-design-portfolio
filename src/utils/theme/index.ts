@@ -1,6 +1,7 @@
 interface ThemesInterface<T> {
   home: T;
   animation: T;
+  becomingLost: T;
 }
 
 export const themes: ThemesInterface<{
@@ -8,7 +9,8 @@ export const themes: ThemesInterface<{
   rgb: string;
 }> = Object.freeze({
   home: { name: "red", rgb: "255, 0, 0" },
-  animation: { name: "blue", rgb: "0, 0, 255" }
+  animation: { name: "blue", rgb: "0, 0, 255" },
+  becomingLost: { name: "green", rgb: "0, 255, 0" }
 });
 
 export type ThemeName = keyof ThemesInterface<any>;

@@ -1,8 +1,9 @@
 //@flow
 import * as React from "react";
 import { NavLink } from "react-router-dom";
+import styled, { css } from "styled-components";
 
-import { ThemeText, ThemeName } from "src/features/theme";
+import { ThemeName, getThemeColor } from "src/utils/theme";
 
 import styles from "./MenuItem.module.scss";
 
@@ -12,6 +13,14 @@ type Props = {
   themeName: ThemeName;
   pathname: string;
 };
+
+export const MenuItemText = styled.div<{ themeName: ThemeName }>`
+  &:hover {
+    ${props => css`
+      color: ${getThemeColor(props.themeName)};
+    `}
+  }
+`;
 
 export default class MenuItem extends React.PureComponent<Props> {
   render() {
@@ -23,7 +32,9 @@ export default class MenuItem extends React.PureComponent<Props> {
         activeClassName={styles["link-active"]}
         to={link}
       >
-        <ThemeText themeName={themeName}>{text}</ThemeText>
+        <MenuItemText className={styles.text} themeName={themeName}>
+          {text}
+        </MenuItemText>
       </NavLink>
     );
   }
