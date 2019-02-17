@@ -25,70 +25,59 @@ interface PagesInterface<T> {
 }
 
 const pageDetails: PagesInterface<{
-  name: string;
   rgb: string;
   title: string;
   link: string;
 }> = Object.freeze({
   home: {
-    title: "Home",
+    title: "About",
     link: linkToHomePage(),
-    name: "red",
-    rgb: "255, 0, 0"
+    rgb: "24, 0, 227"
   },
   becomingLost: {
     title: "Becoming Lost",
     link: linkToBecomingLost(),
-    name: "green",
-    rgb: "0, 255, 0"
+    rgb: "218, 0, 42"
   },
   boobies: {
     title: "Boobies",
     link: linkToBoobies(),
-    name: "yellow",
-    rgb: "0, 0, 0"
+    rgb: "212, 111, 133"
   },
   nineLives: {
     title: "Nine Lives",
     link: linkToNineLives(),
-    name: "blue",
-    rgb: "0, 0, 0"
+    rgb: "10, 96, 199"
   },
   walkingGreenwich: {
     title: "Walking Greenwich",
     link: linkToWalkingGreenwich(),
-    name: "blue",
-    rgb: "0, 0, 0"
+    rgb: "68, 199, 171"
   },
   southOfTheRiver: {
     title: "South of the river",
     link: linkToSouthOfTheRiver(),
-    name: "blue",
-    rgb: "0, 0, 0"
+    rgb: "80, 46, 92"
   },
   mwambao: {
     title: "Mwambao",
     link: linkToMwambao(),
-    name: "blue",
-    rgb: "0, 0, 0"
+    rgb: "255, 137, 0"
   },
   goManifesto: {
     title: "Go manifesto",
     link: linkToGoManifesto(),
-    name: "blue",
-    rgb: "0, 0, 0"
+    rgb: "73, 168, 196"
   },
   jkrRecycling: {
     title: "JKR Recycling",
     link: linkToJkrRecycling(),
-    name: "blue",
-    rgb: "0, 0, 0"
+    rgb: "37, 173, 85"
   },
   contact: {
     title: "contact",
     link: linkToContact(),
-    name: "blue",
-    rgb: "0, 0, 0"
+    rgb: "255, 175, 75"
   }
 });
 
@@ -106,10 +95,10 @@ export function getPageTitle(pageName: PageName) {
   return pageDetails[pageName].title;
 }
 
-export function getPageColor(pageName: PageName) {
-  return pageDetails[pageName].name;
-}
-
 export function getPageRGB(pageName: PageName) {
   return pageDetails[pageName].rgb;
+}
+
+export function getPageColor(pageName: PageName) {
+  return `rgb(${getPageRGB(pageName)})`;
 }

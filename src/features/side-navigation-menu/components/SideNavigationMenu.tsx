@@ -30,6 +30,7 @@ class SideNavigationMenu extends React.PureComponent<RouteComponentProps> {
   renderMenuItem(pageName: PageName) {
     return (
       <MenuItem
+        className={styles.menuItem}
         location={this.props.location}
         pageName={pageName}
         text={getPageTitle(pageName)}

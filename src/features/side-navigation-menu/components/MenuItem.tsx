@@ -3,6 +3,7 @@ import * as React from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import * as H from "history";
 import styled, { css } from "styled-components";
+import classnames from "classnames";
 
 import { PageName, getPageColor } from "src/utils/pages";
 
@@ -13,6 +14,7 @@ type Props = {
   link: string;
   pageName: PageName;
   location: H.Location;
+  className?: string;
 };
 
 export const MenuItemText = styled.div<{
@@ -39,9 +41,9 @@ export default class MenuItem extends React.PureComponent<Props> {
   }
 
   render() {
-    const { text, link, pageName } = this.props;
+    const { text, link, pageName, className } = this.props;
     return (
-      <Link smooth className={styles.link} to={link}>
+      <Link smooth className={classnames(styles.link, className)} to={link}>
         <MenuItemText
           className={styles.text}
           pageName={pageName}
