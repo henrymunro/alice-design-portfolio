@@ -1,30 +1,31 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { ThemeName, getThemeColor } from "src/utils/theme";
+import { PageName, getPageColor } from "src/utils/pages";
 
 import styles from "./PageText.module.scss";
 
 export const ThemeColor = styled.div<{
-  themeName: ThemeName;
+  pageName: PageName;
 }>`
-  ${({ themeName }) =>
+  ${({ pageName }) =>
     css`
-      color: ${getThemeColor(themeName)};
+      color: ${getPageColor(pageName)};
     `}
 `;
 
-type Props = {
-  themeName: ThemeName;
+export type Props = {
+  pageName: PageName;
   title: string;
+  className?: string;
   paragraphs: string[];
 };
 
 export default class PageText extends React.PureComponent<Props> {
   render() {
-    const { themeName, title, paragraphs } = this.props;
+    const { pageName, className, title, paragraphs } = this.props;
     return (
-      <ThemeColor themeName={themeName}>
+      <ThemeColor className={className} pageName={pageName}>
         <h3 className={styles.title}>{title}</h3>
         {paragraphs.map((paragraph, i) => (
           <p key={i} className={styles.text}>

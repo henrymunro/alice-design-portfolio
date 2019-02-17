@@ -1,11 +1,7 @@
 //@flow
 import * as React from "react";
 
-import {
-  linkToHomePage,
-  linkToAnimation,
-  linkToBecomingLost
-} from "src/pages/links";
+import { PageName, getPageLink } from "src/utils/pages";
 
 import HomeSquare from "./HomeSquare";
 import styles from "./HomePage.module.scss";
@@ -14,22 +10,25 @@ export default class HomePage extends React.PureComponent {
   render() {
     return (
       <div className={styles.wrapper}>
-        <HomeSquare
-          link={linkToHomePage()}
-          className={styles.box}
-          themeName="home"
-        />
-        <HomeSquare
-          link={linkToAnimation()}
-          className={styles.box}
-          themeName="animation"
-        />
-        <HomeSquare
-          link={linkToBecomingLost()}
-          className={styles.box}
-          themeName="becomingLost"
-        />
+        {this.renderSquare("becomingLost")}
+        {this.renderSquare("boobies")}
+        {this.renderSquare("nineLives")}
+        {this.renderSquare("walkingGreenwich")}
+        {this.renderSquare("southOfTheRiver")}
+        {this.renderSquare("mwambao")}
+        {this.renderSquare("goManifesto")}
+        {this.renderSquare("jkrRecycling")}
       </div>
+    );
+  }
+
+  renderSquare(pageName: PageName) {
+    return (
+      <HomeSquare
+        link={getPageLink(pageName)}
+        className={styles.box}
+        pageName={pageName}
+      />
     );
   }
 }

@@ -2,6 +2,8 @@ import React from "react";
 import throttle from "lodash.throttle";
 import * as H from "history";
 
+import styles from "./PageWrapper.module.scss";
+
 type Props = {
   id: string;
   history: H.History;
@@ -12,7 +14,7 @@ type Props = {
 const THROTTLE_TIMEOUT = 100;
 const SCROLL_TOLERANCE_PERCENTAGE = 25;
 
-export default class Page extends React.PureComponent<Props> {
+export default class PageWrapper extends React.PureComponent<Props> {
   ref: React.RefObject<HTMLDivElement> = React.createRef();
 
   componentDidMount() {
@@ -43,11 +45,7 @@ export default class Page extends React.PureComponent<Props> {
     const { id, children } = this.props;
 
     return (
-      <div
-        ref={this.ref}
-        id={id}
-        style={{ border: "1px solid black", height: "100vh" }}
-      >
+      <div ref={this.ref} id={id} className={styles.wrapper}>
         {children}
       </div>
     );

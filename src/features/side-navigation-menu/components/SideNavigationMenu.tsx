@@ -2,11 +2,7 @@
 import * as React from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
-import {
-  linkToHomePage,
-  linkToAnimation,
-  linkToBecomingLost
-} from "src/pages/links";
+import { PageName, getPageTitle, getPageLink } from "src/utils/pages";
 
 import MenuItem from "./MenuItem";
 import styles from "./SideNavigationMenu.module.scss";
@@ -17,25 +13,28 @@ class SideNavigationMenu extends React.PureComponent<RouteComponentProps> {
     const location = history.location;
     return (
       <div className={styles.wrapper}>
-        <MenuItem
-          location={location}
-          themeName="home"
-          text="Home"
-          link={linkToHomePage()}
-        />
-        <MenuItem
-          location={location}
-          themeName="animation"
-          text="Animation"
-          link={linkToAnimation()}
-        />
-        <MenuItem
-          location={location}
-          themeName="becomingLost"
-          text="Becoming lost"
-          link={linkToBecomingLost()}
-        />
+        {this.renderMenuItem("home")}
+        {this.renderMenuItem("becomingLost")}
+        {this.renderMenuItem("boobies")}
+        {this.renderMenuItem("nineLives")}
+        {this.renderMenuItem("walkingGreenwich")}
+        {this.renderMenuItem("southOfTheRiver")}
+        {this.renderMenuItem("mwambao")}
+        {this.renderMenuItem("goManifesto")}
+        {this.renderMenuItem("jkrRecycling")}
+        {this.renderMenuItem("contact")}
       </div>
+    );
+  }
+
+  renderMenuItem(pageName: PageName) {
+    return (
+      <MenuItem
+        location={this.props.location}
+        pageName={pageName}
+        text={getPageTitle(pageName)}
+        link={getPageLink(pageName)}
+      />
     );
   }
 }

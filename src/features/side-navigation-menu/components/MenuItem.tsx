@@ -4,30 +4,30 @@ import { HashLink as Link } from "react-router-hash-link";
 import * as H from "history";
 import styled, { css } from "styled-components";
 
-import { ThemeName, getThemeColor } from "src/utils/theme";
+import { PageName, getPageColor } from "src/utils/pages";
 
 import styles from "./MenuItem.module.scss";
 
 type Props = {
   text: string;
   link: string;
-  themeName: ThemeName;
+  pageName: PageName;
   location: H.Location;
 };
 
 export const MenuItemText = styled.div<{
-  themeName: ThemeName;
+  pageName: PageName;
   active: boolean | null;
 }>`
-  ${({ active, themeName }) =>
+  ${({ active, pageName }) =>
     active &&
     css`
-      color: ${getThemeColor(themeName)};
+      color: ${getPageColor(pageName)};
     `}
 
   &:hover {
     ${props => css`
-      color: ${getThemeColor(props.themeName)};
+      color: ${getPageColor(props.pageName)};
     `}
   }
 `;
@@ -39,12 +39,12 @@ export default class MenuItem extends React.PureComponent<Props> {
   }
 
   render() {
-    const { text, link, themeName } = this.props;
+    const { text, link, pageName } = this.props;
     return (
       <Link smooth className={styles.link} to={link}>
         <MenuItemText
           className={styles.text}
-          themeName={themeName}
+          pageName={pageName}
           active={this.isActive()}
         >
           {text}
