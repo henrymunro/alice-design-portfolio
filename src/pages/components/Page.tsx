@@ -1,5 +1,5 @@
 import React from "react";
-import debounce from "lodash.debounce";
+import throttle from "lodash.throttle";
 import * as H from "history";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const DEBOUNCE_TIMEOUT = 200;
+const THROTTLE_TIMEOUT = 200;
 const SCROLL_TOLERANCE_PERCENTAGE = 10;
 
 export default class Page extends React.PureComponent<Props> {
@@ -23,7 +23,7 @@ export default class Page extends React.PureComponent<Props> {
     window.removeEventListener("scroll", this.navigateOnScrollIntoView);
   }
 
-  navigateOnScrollIntoView = debounce(() => {
+  navigateOnScrollIntoView = throttle(() => {
     const element = this.ref.current;
     if (!element) return;
 
@@ -38,7 +38,7 @@ export default class Page extends React.PureComponent<Props> {
       console.log(this.props.id);
       this.props.history.push(this.props.link);
     }
-  }, DEBOUNCE_TIMEOUT);
+  }, THROTTLE_TIMEOUT);
 
   render() {
     const { id, children } = this.props;
