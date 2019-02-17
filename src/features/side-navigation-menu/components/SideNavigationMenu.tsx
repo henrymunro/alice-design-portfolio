@@ -14,23 +14,23 @@ import styles from "./SideNavigationMenu.module.scss";
 class SideNavigationMenu extends React.PureComponent<RouteComponentProps> {
   render() {
     const { history } = this.props;
-    const pathname = history.location.pathname;
+    const location = history.location;
     return (
       <div className={styles.wrapper}>
         <MenuItem
-          pathname={pathname}
+          location={location}
           themeName="home"
           text="Home"
           link={linkToHomePage()}
         />
         <MenuItem
-          pathname={pathname}
+          location={location}
           themeName="animation"
           text="Animation"
           link={linkToAnimation()}
         />
         <MenuItem
-          pathname={pathname}
+          location={location}
           themeName="becomingLost"
           text="Becoming lost"
           link={linkToBecomingLost()}
