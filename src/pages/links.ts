@@ -1,11 +1,15 @@
+function baseLink() {
+  return "/home";
+}
+
 export function linkToHomePage() {
-  return "";
+  return `${baseLink()}#home`;
 }
 
 export function linkToAnimation() {
-  return `${linkToHomePage()}/animation`;
+  return `${baseLink()}#animation`;
 }
 
 export function linkToBecomingLost() {
-  return `${linkToHomePage()}/becoming-lost`;
+  return `${baseLink()}#becoming-lost`;
 }

@@ -1,6 +1,6 @@
 //@flow
 import * as React from "react";
-import { NavLink } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import styled, { css } from "styled-components";
 
 import { ThemeName, getThemeColor } from "src/utils/theme";
@@ -26,16 +26,11 @@ export default class MenuItem extends React.PureComponent<Props> {
   render() {
     const { text, link, themeName } = this.props;
     return (
-      <NavLink
-        exact
-        className={styles.link}
-        activeClassName={styles["link-active"]}
-        to={link}
-      >
+      <Link smooth className={styles.link} to={link}>
         <MenuItemText className={styles.text} themeName={themeName}>
           {text}
         </MenuItemText>
-      </NavLink>
+      </Link>
     );
   }
 }

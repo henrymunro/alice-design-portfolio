@@ -13,7 +13,9 @@ export default class AppLayout extends React.Component<Props> {
     const { renderSidebar, renderPageBody } = this.props;
     return (
       <div className={styles.wrapper}>
-        <div className={styles.sideBar}>{renderSidebar()}</div>
+        <div className={styles.sideBarGrid}>
+          <div className={styles.sideBarFixed}>{renderSidebar()}</div>
+        </div>
         <div className={styles.pageBody}>{renderPageBody()}</div>
       </div>
     );

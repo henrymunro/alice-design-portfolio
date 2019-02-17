@@ -1,12 +1,16 @@
 .wrapper {
   padding: 60px;
   display: grid;
-  grid-column: "25% 75%";
+  grid-template-columns: 170px auto;
   grid-template-areas: "sideBar pageBody";
 }
 
-.sideBar {
+.sideBarGrid {
   grid-template: "sideBar";
+}
+
+.sideBarFixed {
+  position: fixed;
 }
 
 .pageBody {
