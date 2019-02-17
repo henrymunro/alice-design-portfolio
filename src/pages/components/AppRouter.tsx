@@ -9,6 +9,7 @@ import {
 } from "src/pages/links";
 import HomePage from "../home-page";
 import AnimationPage from "../animation";
+import BecomingLost from "../becoming-lost";
 
 import AppLayout from "./AppLayout";
 import Page from "./Page";
@@ -34,7 +35,7 @@ class AppRouter extends React.PureComponent<Props> {
               history={history}
               link={linkToBecomingLost()}
             >
-              <AnimationPage />
+              <BecomingLost />
             </Page>
           </>
         )}

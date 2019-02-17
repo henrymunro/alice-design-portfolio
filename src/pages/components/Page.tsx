@@ -9,8 +9,8 @@ type Props = {
   children: React.ReactNode;
 };
 
-const THROTTLE_TIMEOUT = 200;
-const SCROLL_TOLERANCE_PERCENTAGE = 10;
+const THROTTLE_TIMEOUT = 100;
+const SCROLL_TOLERANCE_PERCENTAGE = 25;
 
 export default class Page extends React.PureComponent<Props> {
   ref: React.RefObject<HTMLDivElement> = React.createRef();
@@ -35,7 +35,6 @@ export default class Page extends React.PureComponent<Props> {
       distPercent <= SCROLL_TOLERANCE_PERCENTAGE &&
       distPercent >= -1 * SCROLL_TOLERANCE_PERCENTAGE
     ) {
-      console.log(this.props.id);
       this.props.history.push(this.props.link);
     }
   }, THROTTLE_TIMEOUT);
