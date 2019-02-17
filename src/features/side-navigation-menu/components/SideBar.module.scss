@@ -1,0 +1,56 @@
+@import "src/standard.scss";
+
+.sideBar {
+  position: fixed;
+  background: white;
+  width: $sideBarWidth;
+  height: 100vh;
+  top: 0;
+  z-index: 1;
+  transition: 0.3s;
+  padding: 10px;
+  box-sizing: border-box;
+
+  @include mobileBreakpoint {
+    left: -$sideBarWidth;
+  }
+}
+
+.overlay {
+  background: black;
+  opacity: 0.2;
+  height: 100vh;
+  width: 100vh;
+  top: 0;
+  position: fixed;
+  display: none;
+}
+
+.mobileIcon {
+  display: none;
+  position: absolute;
+  right: -15px;
+
+  @include mobileBreakpoint {
+    display: initial;
+  }
+}
+
+.open {
+  .sideBar {
+    left: 0;
+    @include mobileBreakpoint {
+      border-right: 1px solid black;
+    }
+  }
+
+  .mobileIcon {
+    right: 8px;
+  }
+
+  .overlay {
+    @include mobileBreakpoint {
+      display: initial;
+    }
+  }
+}

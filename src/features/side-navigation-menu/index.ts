@@ -1,1 +1,1 @@
-export { default } from "./components/SideNavigationMenu";
+export { default } from "./components/SideBar";

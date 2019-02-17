@@ -5,12 +5,10 @@ import { withRouter, RouteComponentProps } from "react-router-dom";
 import { PageName, getPageTitle, getPageLink } from "src/utils/pages";
 
 import MenuItem from "./MenuItem";
-import styles from "./SideNavigationMenu.module.scss";
+import styles from "./SideBarContents.module.scss";
 
-class SideNavigationMenu extends React.PureComponent<RouteComponentProps> {
+class SideBarContents extends React.PureComponent<RouteComponentProps> {
   render() {
-    const { history } = this.props;
-    const location = history.location;
     return (
       <div className={styles.wrapper}>
         {this.renderMenuItem("home")}
@@ -40,4 +38,4 @@ class SideNavigationMenu extends React.PureComponent<RouteComponentProps> {
   }
 }
 
-export default withRouter(SideNavigationMenu);
+export default withRouter(SideBarContents);

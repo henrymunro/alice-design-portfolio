@@ -1,0 +1,7 @@
+$sideBarWidth: 200px;
+
+@mixin mobileBreakpoint {
+  @media only screen and (max-width: 500px) {
+    @content;
+  }
+}

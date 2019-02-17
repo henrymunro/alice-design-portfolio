@@ -12,7 +12,7 @@ type Props = {
 };
 
 const THROTTLE_TIMEOUT = 100;
-const SCROLL_TOLERANCE_PERCENTAGE = 25;
+const SCROLL_TOLERANCE_PERCENTAGE = 30;
 
 export default class PageWrapper extends React.PureComponent<Props> {
   ref: React.RefObject<HTMLDivElement> = React.createRef();

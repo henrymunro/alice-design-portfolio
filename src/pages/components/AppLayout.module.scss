@@ -1,17 +1,19 @@
+@import "src/standard.scss";
+
 .wrapper {
-  padding: 0 30px 80px 30px;
   display: grid;
-  grid-template-columns: 170px auto;
+  grid-template-columns: $sideBarWidth auto;
   grid-template-areas: "sideBar pageBody";
+
+  @include mobileBreakpoint {
+    grid-template-columns: auto;
+    grid-template-areas: "pageBody";
+  }
 }
 
 .sideBarGrid {
   padding-top: 45px;
   grid-template: "sideBar";
-}
-
-.sideBarFixed {
-  position: fixed;
 }
 
 .pageBody {

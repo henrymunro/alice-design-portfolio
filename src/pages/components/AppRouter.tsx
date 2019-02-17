@@ -23,7 +23,9 @@ class AppRouter extends React.PureComponent<Props> {
   render() {
     return (
       <AppLayout
-        renderSidebar={() => <SideNavigationMenu />}
+        renderSidebar={() => (
+          <SideNavigationMenu location={this.props.location} />
+        )}
         renderPageBody={() => (
           <>
             {this.renderPage("home", HomePage)}
