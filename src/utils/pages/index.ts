@@ -67,7 +67,7 @@ const pageDetails: PagesInterface<{
     rgb: "0, 0, 0"
   },
   mwambao: {
-    title: "mwambao",
+    title: "Mwambao",
     link: linkToMwambao(),
     name: "blue",
     rgb: "0, 0, 0"
