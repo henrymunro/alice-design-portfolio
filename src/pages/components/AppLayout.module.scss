@@ -1,6 +1,7 @@
 @import "src/standard.scss";
 
 .wrapper {
+  position: relative;
   display: grid;
   grid-template-columns: $sideBarWidth auto;
   grid-template-areas: "sideBar pageBody";

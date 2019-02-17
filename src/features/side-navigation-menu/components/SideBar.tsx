@@ -18,7 +18,10 @@ export default class SideBar extends React.PureComponent<Props, State> {
     open: false
   };
 
-  toggleOpen = () => this.setState(({ open }) => ({ open: !open }));
+  toggleOpen = (e: React.SyntheticEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    this.setState(({ open }) => ({ open: !open }));
+  };
 
   setClosed = () => this.state.open && this.setState({ open: false });
 

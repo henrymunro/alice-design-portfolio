@@ -6,7 +6,7 @@
   width: $sideBarWidth;
   height: 100vh;
   top: 0;
-  z-index: 1;
+  z-index: 3;
   transition: 0.3s;
   padding: 0 10px 0 70px;
   box-sizing: border-box;
@@ -34,6 +34,7 @@
   position: absolute;
   right: -15px;
   top: 5px;
+  z-index: 3;
 
   @include mobileBreakpoint {
     display: initial;
@@ -43,9 +44,6 @@
 .open {
   .sideBar {
     left: 0;
-    @include mobileBreakpoint {
-      border-right: 1px solid black;
-    }
   }
 
   .mobileIcon {

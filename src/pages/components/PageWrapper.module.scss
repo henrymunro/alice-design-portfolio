@@ -1,4 +1,6 @@
+@import "src/standard.scss";
+
 .wrapper {
   min-height: 100vh;
-  border: 1px solid black;
+  padding-top: $headerHeight;
 }
