@@ -12,7 +12,7 @@ type Props = {
 };
 
 const THROTTLE_TIMEOUT = 100;
-const SCROLL_TOLERANCE_PERCENTAGE = 30;
+const NAVIGATE_SCROLL_TOLERANCE_PERCENTAGE = 30;
 
 export default class PageWrapper extends React.PureComponent<Props> {
   ref: React.RefObject<HTMLDivElement> = React.createRef();
@@ -34,8 +34,8 @@ export default class PageWrapper extends React.PureComponent<Props> {
     const distPercent = Math.round((distTop / winY) * 100);
 
     if (
-      distPercent <= SCROLL_TOLERANCE_PERCENTAGE &&
-      distPercent >= -1 * SCROLL_TOLERANCE_PERCENTAGE
+      distPercent <= NAVIGATE_SCROLL_TOLERANCE_PERCENTAGE &&
+      distPercent >= -1 * NAVIGATE_SCROLL_TOLERANCE_PERCENTAGE
     ) {
       this.props.history.push(this.props.link);
     }
