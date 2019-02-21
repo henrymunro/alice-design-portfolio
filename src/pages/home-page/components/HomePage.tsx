@@ -2,32 +2,25 @@
 import * as React from "react";
 
 import { PageName, getPageLink } from "src/utils/pages";
+import PageLayout from "src/pages/components/PageLayout";
 
-import HomeSquare from "./HomeSquare";
+import HomePageSquares from "./HomePageSquares";
 import styles from "./HomePage.module.scss";
+
+const aboutMe1 = `i am a graphic design student studying at
+the university of greenwich, london.`;
+
+const aboutMe2 = `i’m enthusiastic about working with both
+analogue and digital mediums to convey a
+message.`;
 
 export default class HomePage extends React.PureComponent {
   render() {
     return (
-      <div className={styles.wrapper}>
-        {this.renderSquare("becomingLost")}
-        {this.renderSquare("boobies")}
-        {this.renderSquare("nineLives")}
-        {this.renderSquare("walkingGreenwich")}
-        {this.renderSquare("southOfTheRiver")}
-        {this.renderSquare("mwambao")}
-        {this.renderSquare("goManifesto")}
-        {this.renderSquare("jkrRecycling")}
-      </div>
-    );
-  }
-
-  renderSquare(pageName: PageName) {
-    return (
-      <HomeSquare
-        link={getPageLink(pageName)}
-        className={styles.box}
-        pageName={pageName}
+      <PageLayout
+        renderImages={() => <HomePageSquares />}
+        paragraphs={[aboutMe1, aboutMe2]}
+        pageName="home"
       />
     );
   }
