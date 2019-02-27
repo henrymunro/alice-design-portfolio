@@ -1,9 +1,11 @@
 @import "src/standard.scss";
 
-$logoHeight: 80px;
+$logoHeight: 90px;
+$logoMarginTop: 10px;
+$logoMarginBottom: 10px;
 
 :export {
-  logoheight: $logoHeight;
+  logoheight: $logoHeight + $logoMarginTop + $logoMarginBottom;
 }
 
 .wrapper {
@@ -16,8 +18,9 @@ $logoHeight: 80px;
 }
 
 .logo {
+  margin-top: $logoMarginTop;
+  margin-bottom: $logoMarginBottom;
   height: $logoHeight;
-  font-size: 80px;
 }
 
 .title {
@@ -28,6 +31,7 @@ $logoHeight: 80px;
   margin: 0;
   height: $headerHeight;
 }
+
 .titleSpacer {
   height: $headerHeight;
 }
