@@ -1,9 +1,18 @@
+@import 'src/standard.scss';
+
 .wrapper {
-  height: 150px;
-  width: 150px;
-  border: 1px solid black;
+  height: $homeSquareHeight;
+  width: $homeSquareHeight;
   position: relative;
   cursor: pointer;
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%)
 }
 
 .background {
