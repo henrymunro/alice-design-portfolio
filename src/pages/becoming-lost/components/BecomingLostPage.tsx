@@ -1,6 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import PageLayout from "src/pages/components/PageLayout";
+import PageLayout from 'src/pages/components/PageLayout';
+import Youtube from 'src/pages/components/YouTube';
+
+import styles from './BecomingLost.module.scss';
 
 const paragraph1 = `The theme of this istd project was
 ‘lost’. the concept behind this japanese
@@ -19,15 +22,13 @@ sans-serif mr eaves to differentiate male
 and female speakers.`;
 
 export default class BecomingLostPage extends React.PureComponent {
-  render() {
-    return (
-      <>
-        <PageLayout
-          renderImages={() => <div />}
-          paragraphs={[paragraph1, paragraph2]}
-          pageName="becomingLost"
-        />
-      </>
-    );
-  }
+	render() {
+		return (
+			<PageLayout
+				renderImages={() => <Youtube videoId="pHfFbeWXO08" className={styles.video} autoPlay />}
+				paragraphs={[ paragraph1, paragraph2 ]}
+				pageName="becomingLost"
+			/>
+		);
+	}
 }

@@ -13,6 +13,7 @@ import SouthOfTheRiver from "../south-of-the-river";
 import Mwambao from "../mwambao";
 import GoManifesto from "../go-manifesto";
 import JkrRecycling from "../jkr-recycling";
+import Contact from '../contact'
 
 import AppLayout from "./AppLayout";
 import PageWrapper from "./PageWrapper";
@@ -37,6 +38,7 @@ class AppRouter extends React.PureComponent<Props> {
             {this.renderPage("mwambao", Mwambao)}
             {this.renderPage("goManifesto", GoManifesto)}
             {this.renderPage("jkrRecycling", JkrRecycling)}
+            {this.renderPage('contact', Contact)}
           </>
         )}
       />

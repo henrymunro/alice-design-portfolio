@@ -1,0 +1,10 @@
+$aspectRatio: 328px / 525px;
+
+$height: 525px;
+
+.video {
+    max-width: $height;
+    height: $height * $aspectRatio;
+    display: block;
+    margin: 0 auto;
+}

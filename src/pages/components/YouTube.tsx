@@ -1,29 +1,32 @@
 import React from 'react';
 import YouTube, { Options, PlayerVars } from 'react-youtube';
+import classnames from 'classnames';
+
+import styles from './Youtube.module.scss';
 
 type Props = {
 	videoId: string;
+	autoPlay?: boolean;
+	className?: string;
 };
 
 export default class Youtube extends React.PureComponent<Props> {
 	render() {
-		const { videoId } = this.props;
+		const { videoId, autoPlay, className } = this.props;
 		const playerVars: PlayerVars = {
-			autoplay: 1,
+			autoplay: autoPlay ? 1 : 0,
 			modestbranding: 1,
-			loop: 1
+			loop: autoPlay ? 1 : 0,
+			playlist: autoPlay ? videoId : undefined,
+			iv_load_policy: 3,
+			rel: 0,
+			showinfo: 0
 		};
+
 		const opts: Options = {
-			height: '390',
-			width: '640',
 			playerVars
 		};
 
-		return <YouTube videoId={videoId} opts={opts} onReady={this._onReady} />;
-	}
-
-	_onReady(event: any) {
-		// access to player in all event handlers via event.target
-		event.target.pauseVideo();
+		return <YouTube className={classnames(styles.wrapper, className)} videoId={videoId} opts={opts} />;
 	}
 }
