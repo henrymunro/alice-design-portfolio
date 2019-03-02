@@ -43,7 +43,12 @@ export default class MenuItem extends React.PureComponent<Props> {
   render() {
     const { text, link, pageName, className } = this.props;
     return (
-      <Link smooth className={classnames(styles.link, className)} to={link}>
+      <Link 	scroll={(el) => {
+        if (el.id === 'home') {
+          return window.scrollTo({ top: 0 , behavior: 'smooth'});
+        }
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }} className={classnames(styles.link, className)} to={link} >
         <MenuItemText
           className={styles.text}
           pageName={pageName}

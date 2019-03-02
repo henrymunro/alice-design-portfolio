@@ -1,7 +1,6 @@
 //@flow
 import * as React from 'react';
 
-import { PageName, getPageLink } from 'src/utils/pages';
 import PageLayout from 'src/pages/components/PageLayout';
 
 import HomePageSquares from './HomePageSquares';

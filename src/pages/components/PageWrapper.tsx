@@ -12,6 +12,7 @@ type Props = {
 
 type State = {
 	inViewport: boolean;
+	height: string;
 };
 
 const THROTTLE_TIMEOUT = 100;
@@ -22,16 +23,27 @@ export default function withPageWrapper(Component: React.ComponentType<any>) {
 		ref: React.RefObject<HTMLDivElement> = React.createRef();
 
 		state = {
-			inViewport: false
+			inViewport: false,
+			height: '0px'
 		};
 
 		componentDidMount() {
 			window.addEventListener('scroll', this.navigateOnScrollIntoView);
+			this.ref.current && this.ref.current.addEventListener('resize', this.updateHeightIfNecessary);
+			this.updateHeightIfNecessary();
 		}
 
 		componentWillUnmount() {
 			window.removeEventListener('scroll', this.navigateOnScrollIntoView);
+			this.ref.current && this.ref.current.removeEventListener('resize', this.throttledUpdateHeightIfNecessary);
 		}
+
+		updateHeightIfNecessary = () => {
+			const newHeight = this.ref.current ? `${this.ref.current.scrollHeight}px` : '0px';
+			this.state.height !== newHeight && this.setState({ height: newHeight });
+		};
+
+		throttledUpdateHeightIfNecessary = throttle(this.updateHeightIfNecessary, THROTTLE_TIMEOUT);
 
 		navigateOnScrollIntoView = throttle(() => {
 			const element = this.ref.current;
@@ -57,10 +69,13 @@ export default function withPageWrapper(Component: React.ComponentType<any>) {
 
 		render() {
 			const { id, link, ...otherProps } = this.props;
+			this.updateHeightIfNecessary();
 
 			return (
-				<div ref={this.ref} id={id} className={styles.wrapper}>
-					<Component {...otherProps} inViewport={this.state.inViewport} />
+				<div className={styles.wrapper} id={id} style={{ height: this.state.height }}>
+					<div ref={this.ref} className={styles.inner}>
+						<Component {...otherProps} inViewport={this.state.inViewport} />
+					</div>
 				</div>
 			);
 		}

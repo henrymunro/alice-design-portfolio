@@ -25,7 +25,16 @@ export default class HomeSquare extends React.PureComponent<Props> {
 	render() {
 		const { pageName, className, link, imgUrl } = this.props;
 		return (
-			<Link smooth className={classnames(styles.wrapper, className)} to={link}>
+			<Link
+				scroll={(el) => {
+					if (el.id === 'home') {
+						return window.scrollTo({ top: 0, behavior: 'smooth' });
+					}
+					el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}}
+				className={classnames(styles.wrapper, className)}
+				to={link}
+			>
 				{imgUrl && <img className={styles.image} src={imgUrl} alt={pageName} />}
 				<ThemeBackground className={styles.background} pageName={pageName}>
 					{getPageTitle(pageName)}

@@ -1,7 +1,14 @@
 @import "src/standard.scss";
 
-.wrapper {
-  min-height: 100vh;
-  padding-top: $headerHeight;
 
+
+.wrapper {
+  position: relative;
+}
+
+.inner {
+  width: 100%;
+  position: absolute;
+  top: $headerHeight;
+  min-height: 100vh;
 }
