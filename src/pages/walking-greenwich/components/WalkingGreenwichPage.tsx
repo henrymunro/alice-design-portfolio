@@ -1,6 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import PageLayout from "src/pages/components/PageLayout";
+import PageLayout from 'src/pages/components/PageLayout';
+
+import greenwichLarge from 'src/assets/walking-greenwich/greenwich-large.jpg';
+import greenwichSmall from 'src/assets/walking-greenwich/greenwich-small.jpg';
+
+import styles from './WalkingGreenwich.module.scss';
 
 const paragraph1 = `This data visualisation was a first year
 university project set to collect and
@@ -20,15 +25,22 @@ route by typing into a gps device the
 coordinates.`;
 
 export default class WalkingGreenwichPage extends React.PureComponent {
-  render() {
-    return (
-      <>
-        <PageLayout
-          renderImages={() => <div />}
-          paragraphs={[paragraph1, paragraph2]}
-          pageName="walkingGreenwich"
-        />
-      </>
-    );
-  }
+	render() {
+		return (
+			<PageLayout
+				renderImages={this.renderImages}
+				paragraphs={[ paragraph1, paragraph2 ]}
+				pageName="walkingGreenwich"
+			/>
+		);
+	}
+
+	renderImages() {
+		return (
+			<div>
+				<img src={greenwichLarge} alt="Greenwich project" className={styles.topImage} />
+				<img src={greenwichSmall} alt="Greenwich project" className={styles.topImage} />
+			</div>
+		);
+	}
 }

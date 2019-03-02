@@ -1,9 +1,14 @@
+@import 'src/standard.scss';
+
+$margin: 10px;
+
 .wrapper {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  max-width: $homeSquareHeight * 3 + 6 * $margin;
 }
 
 .box {
-  margin: 10px;
+  margin: $margin;
 }

@@ -1,10 +1,23 @@
 $aspectRatio: 349px / 525px;
 
-$height: 525px;
+$width: 525px;
+
+.wrapper {
+    width: $width;
+    margin: 0 auto;
+}
 
 .video {
-    max-width: $height;
-    height: $height * $aspectRatio;
-    display: block;
-    margin: 0 auto;
+    max-width: $width;
+    height: $width * $aspectRatio;
+}
+
+.largeImage {
+    width: 100%;
+    height: auto;
+}
+
+.smallImage {
+    width: 48%;
+    height: auto;
 }

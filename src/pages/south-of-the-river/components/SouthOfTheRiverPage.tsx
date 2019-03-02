@@ -1,7 +1,9 @@
 import React from 'react';
 
 import PageLayout from 'src/pages/components/PageLayout';
-import Youtube from 'src/pages/components/YouTube';
+// import Youtube from 'src/pages/components/YouTube';
+// import vid from 'src/assets/south-of-the-river/south-of-the-river.mp4';
+import vid from 'src/assets/south-of-the-river/nakedladiesupdatefinal.mp4';
 
 import styles from './SouthOfTheRiver.module.scss';
 
@@ -16,7 +18,12 @@ export default class SouthOfTheRiverPage extends React.PureComponent {
 	render() {
 		return (
 			<PageLayout
-				renderImages={() => <Youtube videoId="gdTwxzcnpN4" className={styles.video} />}
+				// renderImages={() => <Youtube videoId="gdTwxzcnpN4" className={styles.video} />}
+				renderImages={() => (
+					<div className={styles.mask}>
+						<video src={vid} autoPlay loop className={styles.video} />
+					</div>
+				)}
 				paragraphs={[ paragraph1 ]}
 				pageName="southOfTheRiver"
 			/>

@@ -3,6 +3,12 @@ import React from 'react';
 import PageLayout from 'src/pages/components/PageLayout';
 import Youtube from 'src/pages/components/YouTube';
 
+import cover from 'src/assets/becoming-lost/becoming-lost-cover.jpg';
+import img1 from 'src/assets/becoming-lost/becoming-lost-1.jpg';
+import img2 from 'src/assets/becoming-lost/becoming-lost-2.jpg';
+import img3 from 'src/assets/becoming-lost/becoming-lost-3.jpg';
+import img4 from 'src/assets/becoming-lost/becoming-lost-4.jpg';
+
 import styles from './BecomingLost.module.scss';
 
 const paragraph1 = `The theme of this istd project was
@@ -25,10 +31,22 @@ export default class BecomingLostPage extends React.PureComponent {
 	render() {
 		return (
 			<PageLayout
-				renderImages={() => <Youtube videoId="pHfFbeWXO08" className={styles.video} autoPlay />}
+				renderImages={this.renderImages}
 				paragraphs={[ paragraph1, paragraph2 ]}
 				pageName="becomingLost"
 			/>
+		);
+	}
+
+	renderImages() {
+		return (
+			<div className={styles.wrapper}>
+				{/* <Youtube videoId="pHfFbeWXO08" className={styles.video} /> */}
+				<img src={img1} alt="" className={styles.largeImage} />
+				<img src={img2} alt="" className={styles.largeImage} />
+				<img src={img4} alt="" className={styles.largeImage} />
+				<img src={img3} alt="" className={styles.largeImage} />
+			</div>
 		);
 	}
 }
