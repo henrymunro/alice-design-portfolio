@@ -1,18 +1,40 @@
+@import 'src/standard.scss';
+
 .wrapper {
   display: flex;
   padding: 20px 5% 20px 10%;
   box-sizing: border-box;
   justify-content: stretch;
+
+  @include tabletBreakpoint {
+    padding: 10px 5% 10px 5%;
+  }
+
+  @include mobileBreakpoint {
+    flex-direction: column-reverse;
+  }
 }
 
 .images {
   flex-grow: 1;
   flex-shrink: 1;
   margin-top: 36px;
+
+  @include mobileBreakpoint {
+    margin-top: 0;
+  }
 }
 
 .text {
   width: 225px;
   min-width: 225px;
   margin-left: 50px;
+
+  @include mobileBreakpoint {
+    align-self: center;
+    margin-bottom: 20px;
+    margin-left: 0;
+    width: 100%;
+    max-width: 400px;
+  }
 }

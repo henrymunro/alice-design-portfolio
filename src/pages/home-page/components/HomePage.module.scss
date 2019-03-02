@@ -1,3 +1,18 @@
+@import 'src/standard.scss';
+
 .wrapper {
-  display: flex;
+  padding-top: 0;
+
+  @include mobileBreakpoint {
+    flex-direction: column;
+  }
+}
+
+.images {
+  margin-top: -10px;
+
+  @include mobileBreakpoint {
+    margin-bottom: 20px;
+    margin-top: -$headerHeight;
+  }
 }

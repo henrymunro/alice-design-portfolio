@@ -1,3 +1,5 @@
+@import 'src/standard.scss';
+
 .title {
   font-size: 15px;
   line-height: 15px;
@@ -5,6 +7,10 @@
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 0.2px;
+
+  @include mobileBreakpoint {
+    text-align: center;
+  }
 }
 
 .text {

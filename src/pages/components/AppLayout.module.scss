@@ -5,8 +5,9 @@
   display: grid;
   grid-template-columns: $sideBarWidth auto;
   grid-template-areas: "sideBar pageBody";
+  width: 100vw;
 
-  @include mobileBreakpoint {
+  @include tabletBreakpoint {
     grid-template-columns: auto;
     grid-template-areas: "pageBody";
   }
@@ -15,6 +16,10 @@
 .sideBarGrid {
   padding-top: 45px;
   grid-template: "sideBar";
+
+  @include mobileBreakpoint {
+    padding-top: 0;
+  }
 }
 
 .pageBody {

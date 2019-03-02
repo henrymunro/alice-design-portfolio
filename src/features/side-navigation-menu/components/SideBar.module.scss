@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
 
-  @include mobileBreakpoint {
+  @include tabletBreakpoint {
     padding-left: 40px;
     left: -$sideBarWidth;
   }
@@ -22,9 +22,10 @@
 .overlay {
   background: black;
   opacity: 0.2;
-  height: 100vh;
-  width: 100vh;
   top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   position: fixed;
   display: none;
 }
@@ -32,11 +33,11 @@
 .mobileIcon {
   display: none;
   position: absolute;
-  right: -15px;
-  top: 5px;
+  right: -45px;
+  top: 8px;
   z-index: 3;
 
-  @include mobileBreakpoint {
+  @include tabletBreakpoint {
     display: initial;
   }
 }
@@ -51,7 +52,7 @@
   }
 
   .overlay {
-    @include mobileBreakpoint {
+    @include tabletBreakpoint {
       display: initial;
     }
   }

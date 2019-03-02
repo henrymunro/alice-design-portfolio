@@ -3,7 +3,8 @@ $aspectRatio: 349px / 525px;
 $width: 525px;
 
 .wrapper {
-    width: $width;
+    max-width: $width;
+    width: 100%;
     margin: 0 auto;
 }
 

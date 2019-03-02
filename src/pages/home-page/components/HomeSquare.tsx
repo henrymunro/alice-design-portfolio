@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { HashLink as Link } from 'react-router-hash-link';
 import styled, { css } from 'styled-components';
 
-import { PageName, getPageColor } from 'src/utils/pages';
+import { PageName, getPageColor, getPageTitle } from 'src/utils/pages';
 import styles from './HomeSquare.module.scss';
 
 export const ThemeBackground =
@@ -25,13 +25,11 @@ export default class HomeSquare extends React.PureComponent<Props> {
 	render() {
 		const { pageName, className, link, imgUrl } = this.props;
 		return (
-			<Link smooth className={styles.link} to={link}>
-				<div className={classnames(styles.wrapper, className)}>
-					{imgUrl && <img className={styles.image} src={imgUrl} alt={pageName} />}
-					<ThemeBackground className={styles.background} pageName={pageName}>
-						{pageName}
-					</ThemeBackground>
-				</div>
+			<Link smooth className={classnames(styles.wrapper, className)} to={link}>
+				{imgUrl && <img className={styles.image} src={imgUrl} alt={pageName} />}
+				<ThemeBackground className={styles.background} pageName={pageName}>
+					{getPageTitle(pageName)}
+				</ThemeBackground>
 			</Link>
 		);
 	}

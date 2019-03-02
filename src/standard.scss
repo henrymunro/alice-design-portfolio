@@ -4,8 +4,14 @@ $headerHeight: 50px;
 $homeSquareHeight: 150px;
 
 
+@mixin tabletBreakpoint {
+  @media only screen and (max-width: 920px) {
+    @content;
+  }
+}
+
 @mixin mobileBreakpoint {
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 650px) {
     @content;
   }
 }
