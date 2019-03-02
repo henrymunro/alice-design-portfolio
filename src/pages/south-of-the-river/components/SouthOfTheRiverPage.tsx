@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PageLayout from 'src/pages/components/PageLayout';
+import Video from 'src/pages/components/Video';
 // import Youtube from 'src/pages/components/YouTube';
 // import vid from 'src/assets/south-of-the-river/south-of-the-river.mp4';
 import vid from 'src/assets/south-of-the-river/nakedladiesupdatefinal.mp4';
@@ -14,14 +15,18 @@ basis the concept developed into a feeling
 and experience rather than traditional
 music branding.`;
 
-export default class SouthOfTheRiverPage extends React.PureComponent {
+type Props = {
+	inViewport: boolean;
+};
+
+export default class SouthOfTheRiverPage extends React.PureComponent<Props> {
 	render() {
 		return (
 			<PageLayout
 				// renderImages={() => <Youtube videoId="gdTwxzcnpN4" className={styles.video} />}
 				renderImages={() => (
 					<div className={styles.mask}>
-						<video src={vid} autoPlay loop className={styles.video} />
+						<Video src={vid} play={this.props.inViewport} loop className={styles.video} />
 					</div>
 				)}
 				paragraphs={[ paragraph1 ]}

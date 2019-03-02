@@ -6,18 +6,20 @@ import styles from './Youtube.module.scss';
 
 type Props = {
 	videoId: string;
+	play?: boolean;
 	autoPlay?: boolean;
 	className?: string;
 };
 
 export default class Youtube extends React.PureComponent<Props> {
 	render() {
-		const { videoId, autoPlay, className } = this.props;
+		const { videoId, autoPlay, className, play } = this.props;
+		const playVideo = play || autoPlay;
 		const playerVars: PlayerVars = {
-			autoplay: autoPlay ? 1 : 0,
+			autoplay: playVideo ? 1 : 0,
 			modestbranding: 1,
-			loop: autoPlay ? 1 : 0,
-			playlist: autoPlay ? videoId : undefined,
+			loop: playVideo ? 1 : 0,
+			playlist: playVideo ? videoId : undefined,
 			iv_load_policy: 3,
 			rel: 0,
 			showinfo: 0

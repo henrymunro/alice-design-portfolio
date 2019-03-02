@@ -16,7 +16,18 @@ import JkrRecycling from "../jkr-recycling";
 import Contact from '../contact'
 
 import AppLayout from "./AppLayout";
-import PageWrapper from "./PageWrapper";
+import withPageWrapper from "./PageWrapper";
+
+const WrappedHomePage = withPageWrapper(HomePage)
+const WrappedBecomingLost = withPageWrapper(BecomingLost)
+const WrappedBoobies = withPageWrapper(Boobies)
+const WrappedNineLives = withPageWrapper(NineLives)
+const WrappedWalkingGrenwich = withPageWrapper(WalkingGrenwich)
+const WrappedSouthOfTheRiver = withPageWrapper(SouthOfTheRiver)
+const WrappedMwambao = withPageWrapper(Mwambao)
+const WrappedGoManifesto = withPageWrapper(GoManifesto)
+const WrappedJkrRecycling = withPageWrapper(JkrRecycling)
+const WrappedContact = withPageWrapper(Contact)
 
 type Props = RouteComponentProps<any>;
 
@@ -29,31 +40,27 @@ class AppRouter extends React.PureComponent<Props> {
         )}
         renderPageBody={() => (
           <>
-            {this.renderPage("home", HomePage)}
-            {this.renderPage("becomingLost", BecomingLost)}
-            {this.renderPage("boobies", Boobies)}
-            {this.renderPage("nineLives", NineLives)}
-            {this.renderPage("walkingGreenwich", WalkingGrenwich)}
-            {this.renderPage("southOfTheRiver", SouthOfTheRiver)}
-            {this.renderPage("mwambao", Mwambao)}
-            {this.renderPage("goManifesto", GoManifesto)}
-            {this.renderPage("jkrRecycling", JkrRecycling)}
-            {this.renderPage('contact', Contact)}
+            {this.renderPage("home", WrappedHomePage)}
+            {this.renderPage("becomingLost", WrappedBecomingLost)}
+            {this.renderPage("boobies", WrappedBoobies)}
+            {this.renderPage("nineLives", WrappedNineLives)}
+            {this.renderPage("walkingGreenwich", WrappedWalkingGrenwich)}
+            {this.renderPage("southOfTheRiver", WrappedSouthOfTheRiver)}
+            {this.renderPage("mwambao", WrappedMwambao)}
+            {this.renderPage("goManifesto", WrappedGoManifesto)}
+            {this.renderPage("jkrRecycling", WrappedJkrRecycling)}
+            {this.renderPage('contact', WrappedContact)}
           </>
         )}
       />
     );
   }
 
-  renderPage(pageName: PageName, Component: React.ComponentType<{}>) {
+  renderPage(pageName: PageName, Component: React.ComponentType<any>) {
     return (
-      <PageWrapper
-        id={getPageId(pageName)}
+        <Component  id={getPageId(pageName)}
         history={this.props.history}
-        link={getPageLink(pageName)}
-      >
-        <Component />
-      </PageWrapper>
+        link={getPageLink(pageName)}/>
     );
   }
 }
