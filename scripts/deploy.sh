@@ -57,7 +57,7 @@ do
 done
 
 # echo "Ensuring bucket is synced"
-# aws s3 sync ./build "s3://${BUCKET_PATH}" --delete
+aws s3 sync ./build "s3://${BUCKET_PATH}" 
 
 echo "Setting index.html Cache-Control -> no-cache"
 aws s3 cp --cache-control "no-cache, no-store, must-revalidate" --content-encoding gzip s3://$BUCKET_PATH/index.html s3://$BUCKET_PATH/index.html --metadata-directive REPLACE
