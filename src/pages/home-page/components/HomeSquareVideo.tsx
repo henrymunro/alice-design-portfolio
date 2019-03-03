@@ -13,7 +13,10 @@ export default class HomeSquareVideo extends React.PureComponent<Props> {
 	ref: React.RefObject<HTMLVideoElement> = React.createRef();
 
 	onLoad = () => {
-		this.ref.current && this.ref.current.play();
+		console.log('🔥 ➡️ HERE:', 'loaded');
+		setTimeout(() => {
+			this.ref.current && this.ref.current.play();
+		}, 50);
 	};
 
 	render() {
@@ -27,7 +30,8 @@ export default class HomeSquareVideo extends React.PureComponent<Props> {
 					loop
 					playsInline
 					autoPlay
-					onLoad={this.onLoad}
+					muted
+					onLoadedData={this.onLoad}
 				/>
 			</div>
 		);

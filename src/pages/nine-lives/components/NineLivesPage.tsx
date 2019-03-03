@@ -2,6 +2,9 @@ import React from 'react';
 
 import PageLayout from 'src/pages/components/PageLayout';
 import Youtube from 'src/pages/components/YouTube';
+import img1 from 'src/assets/nine-lives/nine-lives-1.png';
+import img2 from 'src/assets/nine-lives/nine-lives-2.png';
+import img3 from 'src/assets/nine-lives/nine-lives-thumb.jpg';
 
 import styles from './NineLivesPage.module.scss';
 
@@ -16,10 +19,22 @@ export default class NineLivesPage extends React.PureComponent {
 	render() {
 		return (
 			<PageLayout
-				renderImages={() => <Youtube videoId="SEGYMd0a0bg" className={styles.video} />}
+				className={styles.page}
+				renderImages={this.renderImages}
 				paragraphs={[ paragraph1 ]}
 				pageName="nineLives"
 			/>
+		);
+	}
+
+	renderImages() {
+		return (
+			<div>
+				<Youtube videoId="SEGYMd0a0bg" className={styles.video} />
+				<img src={img1} alt="" className={styles.image} />
+				<img src={img2} alt="" className={styles.image} />
+				<img src={img3} alt="" className={styles.image} />
+			</div>
 		);
 	}
 }

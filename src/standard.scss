@@ -4,6 +4,10 @@ $headerHeight: 50px;
 $homeSquareHeight: 150px;
 
 
+@mixin overflowPageMarginBottom {
+  margin-bottom: 60px;
+}
+
 @mixin tabletBreakpoint {
   @media only screen and (max-width: 920px) {
     @content;

@@ -2,12 +2,12 @@
 import * as React from 'react';
 
 import boobies from 'src/assets/boobies/boobies_thumbnail.png';
-import nineLives from 'src/assets/nine-lives/nine-lives-thumb.jpg';
+import nineLives from 'src/assets/nine-lives/nine-lives-thumb.png';
 import jrk from 'src/assets/jkr-recycling/recycling-thumb.jpg';
 import southOfTheRiver from 'src/assets/south-of-the-river/south-of-the-river-thumb.jpg';
 import walkingGreenwich from 'src/assets/walking-greenwich/greenwich-small.jpg';
-import becomingLost from 'src/assets/becoming-lost/becoming-lost-1.jpg';
-import goManifesto from 'src/assets/go-manifesto/go-long.jpg';
+import becomingLost from 'src/assets/becoming-lost/lost-thumb.png';
+import goManifesto from 'src/assets/go-manifesto/go-manif-1.png';
 import aliceNameVideo from 'src/assets/alice-name-video.mp4';
 
 import { PageName, getPageLink } from 'src/utils/pages';
@@ -21,11 +21,11 @@ export default class HomePageSquares extends React.PureComponent {
 		return (
 			<div className={styles.wrapper}>
 				{this.renderSquare('becomingLost', becomingLost)}
-				{this.renderSquare('boobies', boobies)}
+				{this.renderSquare('southOfTheRiver', southOfTheRiver)}
 				{this.renderSquare('nineLives', nineLives)}
 				{this.renderSquare('walkingGreenwich', walkingGreenwich)}
 				<HomeSquareVideo videoUrl={aliceNameVideo} className={styles.box} />
-				{this.renderSquare('southOfTheRiver', southOfTheRiver)}
+				{this.renderSquare('boobies', boobies)}
 				{this.renderSquare('mwambao')}
 				{this.renderSquare('goManifesto', goManifesto)}
 				{this.renderSquare('jkrRecycling', jrk)}

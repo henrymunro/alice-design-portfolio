@@ -1,6 +1,12 @@
+@import 'src/standard.scss';
+
 $aspectRatio: 349px / 525px;
 
 $width: 525px;
+
+.page {
+    @include overflowPageMarginBottom;
+}
 
 .wrapper {
     max-width: $width;

@@ -1,10 +1,30 @@
+@import 'src/standard.scss';
+
 $aspectRatio: 295px / 525px;
 
 $height: 600px;
+
+.page {
+    // @include overflowPageMarginBottom;
+}
 
 .video {
     max-width: $height;
     height: $height * $aspectRatio;
     display: block;
     margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    max-width: 400px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }

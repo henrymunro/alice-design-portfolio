@@ -34,6 +34,6 @@ export default class Video extends React.PureComponent<Props> {
 
 	render() {
 		const { className, src, autoPlay, loop } = this.props;
-		return <video className={className} ref={this.ref} src={src} autoPlay={autoPlay} loop={loop} />;
+		return <video className={className} ref={this.ref} src={src} autoPlay={autoPlay} loop={loop} muted />;
 	}
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import throttle from 'lodash.throttle';
 import * as H from 'history';
+import ResizeObserver from 'resize-observer-polyfill';
 
 import styles from './PageWrapper.module.scss';
 
@@ -15,7 +16,7 @@ type State = {
 	height: string;
 };
 
-const THROTTLE_TIMEOUT = 100;
+const THROTTLE_TIMEOUT = 25;
 const NAVIGATE_SCROLL_TOLERANCE_PERCENTAGE = 30;
 
 export default function withPageWrapper(Component: React.ComponentType<any>) {
@@ -31,6 +32,13 @@ export default function withPageWrapper(Component: React.ComponentType<any>) {
 			window.addEventListener('scroll', this.navigateOnScrollIntoView);
 			this.ref.current && this.ref.current.addEventListener('resize', this.updateHeightIfNecessary);
 			this.updateHeightIfNecessary();
+			const ro = new ResizeObserver((entries: any) => {
+				for (let entry of entries) {
+					this.throttledUpdateHeightIfNecessary();
+				}
+			});
+			// Only observe the second box
+			this.ref.current && ro.observe(this.ref.current);
 		}
 
 		componentWillUnmount() {
