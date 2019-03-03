@@ -6,7 +6,11 @@ import img1 from 'src/assets/nine-lives/nine-lives-1.png';
 import img2 from 'src/assets/nine-lives/nine-lives-2.png';
 import img3 from 'src/assets/nine-lives/nine-lives-thumb.jpg';
 
+import Image from 'src/pages/components/Image';
+
 import styles from './NineLivesPage.module.scss';
+
+const images = [ img1, img2, img3 ];
 
 const paragraph1 = `The brief was to animate a poem without
 using a voice over. i wrote this poem about
@@ -31,9 +35,9 @@ export default class NineLivesPage extends React.PureComponent {
 		return (
 			<div>
 				<Youtube videoId="SEGYMd0a0bg" className={styles.video} />
-				<img src={img1} alt="" className={styles.image} />
-				<img src={img2} alt="" className={styles.image} />
-				<img src={img3} alt="" className={styles.image} />
+				<Image src={img1} alt="" className={styles.image} images={images} />
+				<Image src={img2} alt="" className={styles.image} images={images} />
+				<Image src={img3} alt="" className={styles.image} images={images} />
 			</div>
 		);
 	}

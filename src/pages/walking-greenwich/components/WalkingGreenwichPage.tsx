@@ -1,11 +1,14 @@
 import React from 'react';
 
 import PageLayout from 'src/pages/components/PageLayout';
+import Image from 'src/pages/components/Image';
 
 import greenwichLarge from 'src/assets/walking-greenwich/greenwich-large.jpg';
 import greenwichSmall from 'src/assets/walking-greenwich/greenwich-small.jpg';
 
 import styles from './WalkingGreenwich.module.scss';
+
+const images = [ greenwichLarge, greenwichSmall ];
 
 const paragraph1 = `This data visualisation was a first year
 university project set to collect and
@@ -38,8 +41,8 @@ export default class WalkingGreenwichPage extends React.PureComponent {
 	renderImages() {
 		return (
 			<div>
-				<img src={greenwichLarge} alt="Greenwich project" className={styles.topImage} />
-				<img src={greenwichSmall} alt="Greenwich project" className={styles.topImage} />
+				<Image src={greenwichLarge} alt="Greenwich project" className={styles.topImage} images={images} />
+				<Image src={greenwichSmall} alt="Greenwich project" className={styles.topImage} images={images} />
 			</div>
 		);
 	}

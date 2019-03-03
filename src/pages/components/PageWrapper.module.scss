@@ -10,5 +10,5 @@
   width: 100%;
   position: absolute;
   top: $headerHeight;
-  min-height: 100vh;
+  min-height: calc(100vh - #{$headerHeight});
 }

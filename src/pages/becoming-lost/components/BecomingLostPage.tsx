@@ -2,6 +2,7 @@ import React from 'react';
 
 import PageLayout from 'src/pages/components/PageLayout';
 import Video from 'src/pages/components/Video';
+import Image from 'src/pages/components/Image';
 
 import cover from 'src/assets/becoming-lost/becoming-lost-cover.jpg';
 import img1 from 'src/assets/becoming-lost/becoming-lost-1.jpg';
@@ -11,6 +12,8 @@ import img4 from 'src/assets/becoming-lost/becoming-lost-4.jpg';
 import vid from 'src/assets/becoming-lost/lost-vid.mp4';
 
 import styles from './BecomingLost.module.scss';
+
+const images = [ img1, img2, img3, img4 ];
 
 const paragraph1 = `The theme of this istd project was
 ‘lost’. the concept behind this japanese
@@ -48,10 +51,10 @@ export default class BecomingLostPage extends React.PureComponent<Props> {
 		return (
 			<div className={styles.wrapper}>
 				<Video src={vid} className={styles.largeImage} loop play={this.props.inViewport} />
-				<img src={img1} alt="" className={styles.largeImage} />
-				<img src={img2} alt="" className={styles.largeImage} />
-				<img src={img4} alt="" className={styles.largeImage} />
-				<img src={img3} alt="" className={styles.largeImage} />
+				<Image src={img1} alt="" className={styles.largeImage} images={images} />
+				<Image src={img2} alt="" className={styles.largeImage} images={images} />
+				<Image src={img4} alt="" className={styles.largeImage} images={images} />
+				<Image src={img3} alt="" className={styles.largeImage} images={images} />
 			</div>
 		);
 	};

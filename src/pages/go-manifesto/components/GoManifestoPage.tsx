@@ -1,11 +1,15 @@
 import React from 'react';
 
 import PageLayout from 'src/pages/components/PageLayout';
+import Image from 'src/pages/components/Image';
+
 import imageLong from 'src/assets/go-manifesto/go-long.jpg';
 import img1 from 'src/assets/go-manifesto/go-manif-1.jpg';
 import img2 from 'src/assets/go-manifesto/go-manif-2.jpg';
 
 import styles from './GoManifesto.module.scss';
+
+const images = [ imageLong, img1, img2 ];
 
 const paragraph1 = `This first year brief enabled me to write
 my own manfiesto (go) based on my
@@ -33,9 +37,9 @@ export default class GoManifestoPage extends React.PureComponent {
 	renderImages() {
 		return (
 			<div className={styles.images}>
-				<img src={imageLong} alt="" className={styles.image} />
-				<img src={img2} alt="" className={styles.tallImage} />
-				<img src={img1} alt="" className={styles.tallImage} />
+				<Image images={images} src={imageLong} alt="" className={styles.image} />
+				<Image images={images} src={img2} alt="" className={styles.tallImage} />
+				<Image images={images} src={img1} alt="" className={styles.tallImage} />
 			</div>
 		);
 	}
