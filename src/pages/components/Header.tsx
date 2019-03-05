@@ -46,7 +46,7 @@ export default class Header extends React.PureComponent<{}, State> {
 						[styles.fixed]: this.state.fixed
 					})}
 				>
-					Alice Tweddell
+					alice tweddell
 				</h1>
 				{this.state.fixed && <div className={styles.titleSpacer} />}
 			</div>
