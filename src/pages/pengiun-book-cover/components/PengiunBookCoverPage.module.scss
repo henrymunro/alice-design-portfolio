@@ -1,0 +1,25 @@
+@import 'src/standard.scss';
+
+
+@mixin image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 50px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.image1 {
+    @include image;
+    max-width: 480px;
+}
+
+
+.image2 {
+    @include image;
+    max-width: 350px;
+}

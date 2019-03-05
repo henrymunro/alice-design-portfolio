@@ -10,7 +10,7 @@ import Boobies from "../boobies";
 import NineLives from "../nine-lives";
 import WalkingGrenwich from "../walking-greenwich";
 import SouthOfTheRiver from "../south-of-the-river";
-import Mwambao from "../mwambao";
+import Pengiun from "../pengiun-book-cover";
 import GoManifesto from "../go-manifesto";
 import JkrRecycling from "../jkr-recycling";
 import Contact from '../contact'
@@ -24,7 +24,7 @@ const WrappedBoobies = withPageWrapper(Boobies)
 const WrappedNineLives = withPageWrapper(NineLives)
 const WrappedWalkingGrenwich = withPageWrapper(WalkingGrenwich)
 const WrappedSouthOfTheRiver = withPageWrapper(SouthOfTheRiver)
-const WrappedMwambao = withPageWrapper(Mwambao)
+const WrappedPengiun = withPageWrapper(Pengiun)
 const WrappedGoManifesto = withPageWrapper(GoManifesto)
 const WrappedJkrRecycling = withPageWrapper(JkrRecycling)
 const WrappedContact = withPageWrapper(Contact)
@@ -46,7 +46,7 @@ class AppRouter extends React.PureComponent<Props> {
             {this.renderPage("nineLives", WrappedNineLives)}
             {this.renderPage("walkingGreenwich", WrappedWalkingGrenwich)}
             {this.renderPage("southOfTheRiver", WrappedSouthOfTheRiver)}
-            {this.renderPage("mwambao", WrappedMwambao)}
+            {this.renderPage("pengiunBookCover", WrappedPengiun)}
             {this.renderPage("goManifesto", WrappedGoManifesto)}
             {this.renderPage("jkrRecycling", WrappedJkrRecycling)}
             {this.renderPage('contact', WrappedContact)}
