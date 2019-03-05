@@ -30,6 +30,11 @@ $logoMarginBottom: 10px;
   text-align: center;
   margin: 0;
   height: $headerHeight;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  box-sizing: border-box;
 }
 
 .titleSpacer {
