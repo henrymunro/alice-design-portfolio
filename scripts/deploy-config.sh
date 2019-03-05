@@ -2,13 +2,8 @@
 
 set -e
 
-if [ -z "$1" ]; then
-  echo "Usage: yarn deploy-config <stage>"
-  exit 1
-fi
 
-
-BUCKET_PATH=alice-portfolio-webapp-$1
+BUCKET_PATH=alice-portfolio-website-prod
 # BUCKET_NAME=henry-lambda-at-edge-test
 # VERSION=$(node -e "console.log(require('./package.json').version)")
 # BUCKET_PATH=$BUCKET_NAME/$VERSION

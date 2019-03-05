@@ -2,12 +2,8 @@
 
 set -e
 
-if [ -z "$1" ]; then
-  echo "Usage: yarn deploy <stage>"
-  exit 1
-fi
 
-BUCKET_PATH=alice-portfolio-webapp-$1
+BUCKET_PATH=alice-portfolio-website-prod
 
 # BUCKET_NAME=henry-lambda-at-edge-test
 # VERSION=$(node -e "console.log(require('./package.json').version)")
@@ -62,4 +58,4 @@ aws s3 sync ./build "s3://${BUCKET_PATH}"
 echo "Setting index.html Cache-Control -> no-cache"
 aws s3 cp --cache-control "no-cache, no-store, must-revalidate" --content-encoding gzip s3://$BUCKET_PATH/index.html s3://$BUCKET_PATH/index.html --metadata-directive REPLACE
 
-yarn deploy-config $1
+yarn deploy-config
