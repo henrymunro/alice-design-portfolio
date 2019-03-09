@@ -1,39 +1,60 @@
-import React from 'react';
+import React from "react";
 
 type Props = {
-	src: string;
-	play?: boolean;
-	className?: string;
-	loop?: boolean;
-	autoPlay?: boolean;
+  src: string;
+  play?: boolean;
+  className?: string;
+  loop?: boolean;
+  autoPlay?: boolean;
 };
 
-export default class Video extends React.PureComponent<Props> {
-	ref: React.RefObject<HTMLVideoElement> = React.createRef();
-	componentDidMount() {
-		this.props.play && this.playVideo();
-	}
+type State = {
+  autoPlay: boolean;
+};
 
-	componentDidUpdate(prevProps: Props) {
-		if (prevProps.play && !this.props.play) this.pauseVideo();
+export default class Video extends React.PureComponent<Props, State> {
+  ref: React.RefObject<HTMLVideoElement> = React.createRef();
+  state = {
+    autoPlay: false
+  };
 
-		if (!prevProps.play && this.props.play) this.playVideo();
-	}
+  componentDidMount() {
+    this.props.play && this.playVideo();
+  }
 
-	playVideo() {
-		const video = this.ref.current;
-		if (!video) return;
-		video.play();
-	}
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps.play && !this.props.play) this.pauseVideo();
 
-	pauseVideo() {
-		const video = this.ref.current;
-		if (!video) return;
-		video.pause();
-	}
+    if (!prevProps.play && this.props.play) this.playVideo();
+  }
 
-	render() {
-		const { className, src, autoPlay, loop } = this.props;
-		return <video className={className} ref={this.ref} src={src} autoPlay={autoPlay} loop={loop} muted />;
-	}
+  playVideo() {
+    const video = this.ref.current;
+    if (!video) return;
+    video.play().catch(err => {});
+    !this.state.autoPlay && this.setState({ autoPlay: true });
+  }
+
+  pauseVideo() {
+    const video = this.ref.current;
+    if (!video) return;
+    video.pause();
+    this.state.autoPlay && this.setState({ autoPlay: false });
+  }
+
+  render() {
+    const { className, src, autoPlay, loop } = this.props;
+    return (
+      <video
+        className={className}
+        ref={this.ref}
+        src={src}
+        playsInline
+        autoPlay={autoPlay || this.state.autoPlay}
+        loop={loop}
+        muted
+        // controls
+      />
+    );
+  }
 }

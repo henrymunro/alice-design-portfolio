@@ -1,16 +1,6 @@
-$aspectRatio:1;
-
-$height: 300px;
-
-.mask {
-    width: $height - 2px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
 .video {
-    height: $height;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
 }

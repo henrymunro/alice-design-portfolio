@@ -1,13 +1,14 @@
 .images {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .image {
-    width: 33%;
-    min-width: 100px;
-    margin: 0;
-    padding: 0;
+  max-width: 33%;
+  flex: 1;
+  min-width: 80px;
+  margin: 0;
+  padding: 0;
 }
