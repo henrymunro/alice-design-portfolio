@@ -83,7 +83,7 @@ export default function withPageWrapper(Component: React.ComponentType<any>) {
         this.setState({ inViewport: false });
       }
 
-      const { pathname, hash } = this.props.location || ({} as any);
+      const { pathname, hash } = this.props.history.location;
 
       if (
         distPercent <= NAVIGATE_SCROLL_TOLERANCE_PERCENTAGE &&
