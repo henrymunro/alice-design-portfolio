@@ -2,13 +2,17 @@ $aspectRatio: 1;
 
 $height: 300px;
 
+.link {
+  text-decoration: none;
+}
+
 .page {
-    padding-bottom: 0;
+  padding-bottom: 0;
 }
 
 .video {
-    max-width: $height;
-    height: $height * $aspectRatio;
-    display: block;
-    margin: 0 auto;
+  max-width: $height;
+  height: $height * $aspectRatio;
+  display: block;
+  margin: 0 auto;
 }
