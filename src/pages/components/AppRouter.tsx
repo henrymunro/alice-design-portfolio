@@ -43,6 +43,7 @@ class AppRouter extends React.PureComponent<Props> {
         renderPageBody={() => (
           <>
             {this.renderPage("home", WrappedHomePage)}
+            {this.renderPage("airbnbark", WrappedAirbnbark)}
             {this.renderPage("becomingLost", WrappedBecomingLost)}
             {this.renderPage("boobies", WrappedBoobies)}
             {this.renderPage("nineLives", WrappedNineLives)}
@@ -50,7 +51,6 @@ class AppRouter extends React.PureComponent<Props> {
             {this.renderPage("southOfTheRiver", WrappedSouthOfTheRiver)}
             {this.renderPage("pengiunBookCover", WrappedPengiun)}
             {this.renderPage("goManifesto", WrappedGoManifesto)}
-            {this.renderPage("airbnbark", WrappedAirbnbark)}
             {this.renderPage("contact", WrappedContact)}
           </>
         )}

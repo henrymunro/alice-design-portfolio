@@ -22,15 +22,15 @@ export default class HomePageSquares extends React.PureComponent {
   render() {
     return (
       <div className={styles.wrapper}>
+        {this.renderSquare("airbnbark", airbnbark)}
         {this.renderSquare("becomingLost", becomingLost)}
         {this.renderSquare("southOfTheRiver", southOfTheRiver)}
         {this.renderSquare("nineLives", nineLives)}
-        {this.renderSquare("walkingGreenwich", walkingGreenwich)}
         <HomeSquareVideo videoUrl={aliceNameVideo} className={styles.box} />
+        {this.renderSquare("walkingGreenwich", walkingGreenwich)}
         {this.renderSquare("boobies", boobies)}
         {this.renderSquare("pengiunBookCover", pengiun)}
         {this.renderSquare("goManifesto", goManifesto)}
-        {this.renderSquare("airbnbark", airbnbark)}
       </div>
     );
   }

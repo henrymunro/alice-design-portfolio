@@ -12,6 +12,7 @@ class SideBarContents extends React.PureComponent<RouteComponentProps> {
     return (
       <div className={styles.wrapper}>
         {this.renderMenuItem("home")}
+        {this.renderMenuItem("airbnbark")}
         {this.renderMenuItem("becomingLost")}
         {this.renderMenuItem("boobies")}
         {this.renderMenuItem("nineLives")}
@@ -19,7 +20,6 @@ class SideBarContents extends React.PureComponent<RouteComponentProps> {
         {this.renderMenuItem("southOfTheRiver")}
         {this.renderMenuItem("pengiunBookCover")}
         {this.renderMenuItem("goManifesto")}
-        {this.renderMenuItem("airbnbark")}
         {this.renderMenuItem("contact")}
       </div>
     );
