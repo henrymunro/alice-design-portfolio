@@ -1,43 +1,47 @@
 function baseLink() {
-	return '/home';
+  return "/home";
 }
 
 export function linkToHomePage() {
-	return `${baseLink()}#home`;
+  return `${baseLink()}#home`;
 }
 
 export function linkToBecomingLost() {
-	return `${baseLink()}#becoming-lost`;
+  return `${baseLink()}#becoming-lost`;
 }
 
 export function linkToBoobies() {
-	return `${baseLink()}#boobies`;
+  return `${baseLink()}#boobies`;
 }
 
 export function linkToNineLives() {
-	return `${baseLink()}#nine-lives`;
+  return `${baseLink()}#nine-lives`;
 }
 
 export function linkToWalkingGreenwich() {
-	return `${baseLink()}#walking-greenwich`;
+  return `${baseLink()}#walking-greenwich`;
 }
 
 export function linkToSouthOfTheRiver() {
-	return `${baseLink()}#south-of-the-river`;
+  return `${baseLink()}#south-of-the-river`;
 }
 
 export function linkToPengiunBookCover() {
-	return `${baseLink()}#penguin-book-cover`;
+  return `${baseLink()}#penguin-book-cover`;
 }
 
 export function linkToGoManifesto() {
-	return `${baseLink()}#go-manifesto`;
+  return `${baseLink()}#go-manifesto`;
 }
 
 export function linkToJkrRecycling() {
-	return `${baseLink()}#jkr-recycling`;
+  return `${baseLink()}#jkr-recycling`;
 }
 
 export function linkToContact() {
-	return `${baseLink()}#contact`;
+  return `${baseLink()}#contact`;
+}
+
+export function linkToAirbnbark() {
+  return `${baseLink()}#airbnbark`;
 }

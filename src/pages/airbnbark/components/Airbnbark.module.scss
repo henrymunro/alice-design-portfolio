@@ -1,0 +1,43 @@
+@import "src/standard.scss";
+
+$aspectRatio: 349px / 525px;
+
+$width: 525px;
+
+.page {
+  @include overflowPageMarginBottom;
+}
+
+.wrapper {
+  max-width: $width;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.video {
+  max-width: $width;
+  height: $width * $aspectRatio;
+}
+
+.largeImage {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.smallImage {
+  width: 48%;
+  height: auto;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.longVertialBanner {
+  margin-top: 10px;
+  width: 48%;
+  max-width: 100px;
+  height: auto;
+  margin: auto;
+  display: block;
+}
